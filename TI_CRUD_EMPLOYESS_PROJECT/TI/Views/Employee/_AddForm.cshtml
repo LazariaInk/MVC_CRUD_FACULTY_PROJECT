@@ -1,0 +1,74 @@
+﻿@{
+    Employee Employee = (Employee)ViewData["Employee"];
+    string Title = (string)ViewData["Title"];
+}
+
+<div>
+    <label style="font-weight:bold">@Title</label>
+</div>
+<div class="pt-2 mb-2 employee_form" style="overflow:auto">
+    <table class="table table-bordered table-sm table-striped table-bordered">
+        <thead>
+            <tr style="background-color:azure">
+                <td>Property</td>
+                <td>Value</td>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td style="width: 100px">Nume*</td>
+                <td>
+                    <input type="hidden" id="employee_id" value="@Employee.EmployeeId" />
+                    <input class="form-control-sm w-100" id="first_name" value="@Employee.FirstName" autocomplete="off" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px">Prenume*</td>
+                <td>
+                    <input class="form-control-sm w-100" id="last_name" value="@Employee.LastName" autocomplete="off" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px">Departament*</td>
+                <td>
+                    <input class="form-control-sm w-100" id="position" value="@Employee.Position" autocomplete="off" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px">Salariu</td>
+                <td>
+                    <input class="form-control-sm w-100" id="salary" value="@Employee.Salary" autocomplete="off" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px">Spor</td>
+                <td>
+                    <input class="form-control-sm w-100" id="spor" value="@Employee.Spor" autocomplete="off" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px">Premii Brute</td>
+                <td>
+                    <input class="form-control-sm w-100" id="premii_brute" value="@Employee.PremiiBrute" autocomplete="off" />
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2" style="text-align:right">
+
+                    <button type="button" class="btn btn-sm btn-outline-primary employee-form-save" id="save_form">
+                        <i class="fa fa-floppy-o" style="margin-right:5px"></i>
+                        @(Employee.EmployeeId != 0? "Update" : "Creaza")
+                    </button>
+
+                    <button type="button" class="btn btn-sm btn-outline-primary employee-form-close" id="close_form">
+                        <i class="fa fa-close" style="margin-right:5px"></i>
+                        Anuleaza
+                    </button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
